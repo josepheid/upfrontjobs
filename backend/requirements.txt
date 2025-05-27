@@ -1,0 +1,6 @@
+fastapi
+mangum
+python-jose
+boto3
+requests
+uvicorn
