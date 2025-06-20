@@ -40,18 +40,16 @@ export const JobDetails = () => {
                 <div className="space-y-2">
                     <Label htmlFor="location">Location(s)</Label>
                     <div className="relative">
-                        <div className="relative">
-                            <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                            <Input
-                                id="location"
-                                placeholder="e.g. London, UK"
-                                className="pl-10"
-                            />
-                        </div>
-                        <div className="flex items-center gap-2 ">
-                            <Checkbox id="remote" />
-                            <Label htmlFor="remote">Remote?</Label>
-                        </div>
+                        <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                        <Input
+                            id="location"
+                            placeholder="e.g. London, UK"
+                            className="pl-10"
+                        />
+                    </div>
+                    <div className="flex items-center gap-2 ">
+                        <Checkbox id="remote" />
+                        <Label htmlFor="remote">Remote?</Label>
                     </div>
                 </div>
                 <div className="space-y-2">
@@ -89,13 +87,60 @@ export const JobDetails = () => {
                     </Select>
                 </div>
                 <div className="space-y-2">
-                    <Label htmlFor="salary">Salary Range (Optional)</Label>
-                    <div className="relative">
-                        <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                    <Label htmlFor="salary">Salary Range (required)</Label>
+                    <div className="inline-flex items-center gap-1">
+                        <Select value="GBP">
+                            <SelectTrigger id="currency" className="w-[30%]">
+                                <SelectValue />
+                            </SelectTrigger>
+
+                            <SelectContent className="bg-white">
+                                <SelectItem
+                                    value="GBP"
+                                    className="hover:bg-gray-100"
+                                >
+                                    GBP (£)
+                                </SelectItem>
+                                <SelectItem
+                                    value="USD"
+                                    className="hover:bg-gray-100"
+                                >
+                                    USD ($)
+                                </SelectItem>
+                                <SelectItem
+                                    value="EUR"
+                                    className="hover:bg-gray-100"
+                                >
+                                    EUR (€)
+                                </SelectItem>
+
+                                <SelectItem
+                                    value="CAD"
+                                    className="hover:bg-gray-100"
+                                >
+                                    CAD (C$)
+                                </SelectItem>
+                                <SelectItem
+                                    value="AUD"
+                                    className="hover:bg-gray-100"
+                                >
+                                    AUD (A$)
+                                </SelectItem>
+                            </SelectContent>
+                        </Select>
                         <Input
-                            id="salary"
-                            placeholder="e.g. $120,000 - $150,000"
-                            className="pl-10"
+                            id="min-salary"
+                            type="number"
+                            placeholder="Minimum"
+                            className="w-[35%]"
+                            required
+                        />
+                        <Input
+                            id="max-salary"
+                            type="number"
+                            placeholder="Maximum"
+                            className="w-[35%]"
+                            required
                         />
                     </div>
                 </div>
